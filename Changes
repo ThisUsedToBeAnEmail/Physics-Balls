@@ -1,0 +1,32 @@
+Revision history for Physics::Balls
+
+0.08	2026-10-05
+        - A layout row's negative kind no longer indexes the world's kind arrays before it is refused
+        - t/13-advance.t marks 2 and 3 do not assume an NV is a double
+
+0.07	2026-09-23
+        - ABI 4 by append: advance runs the world a fixed time from rows that carry a velocity and reports every body at the horizon, for a game that ticks
+
+0.06	2026-09-22
+        - The tests require Math::BigRat 0.2613
+
+0.05	2026-09-20
+        - The lane fixtures are read in ulps of a double and not bit for bit: a long double perl parses their decimals to a wider number, and a compiler the prototype was not recorded on lands an ulp away
+        - t/11-kinds.t to Test2::Bundle::Numerical
+
+0.04	2026-09-18
+        - A kind may give a body its radius, mass, friction multiplier, a sweep radius against its own kind and a speed above which it is down: for example a bowling ball among pins
+        - A shot may carry a release roll off its line, the hook
+
+0.03	2026-09-18
+        - A ball may curve, by its kind: a chain of parabolas turned at capped segment boundaries, no trigonometry
+        - A shot may carry an adjust: the surface under the struck ball changes once it crosses a line
+        - ABI 2 by append: world_new_ex and strike_ex with size-prefixed structs; the v1 structs and entry points frozen as wrappers
+
+0.02	2026-09-17
+        - A resting pair that crept inside each other is set apart at the end of a shot
+        - A wall or a gate more than a radius behind a ball is not its contact: a course has far sides
+        - Invariant, no-io and far-side tests
+
+0.01	2026-09-16
+        - First version
